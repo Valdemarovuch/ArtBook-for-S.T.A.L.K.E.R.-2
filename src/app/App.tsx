@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Toaster, toast } from 'sonner';
 import confetti from 'canvas-confetti';
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, Github } from 'lucide-react';
 
 import { CardItem } from './components/CardItem';
 import { CollectionStats } from './components/CollectionStats';
@@ -260,10 +260,23 @@ function Footer() {
         <p className="text-white/40 text-xs sm:text-sm max-w-3xl leading-relaxed">
           <span className="font-bold text-orange-500/70">Увага:</span> Цей сайт є фанатською ініціативою та не має офіційного відношення до компанії <span className="font-semibold text-white/50">GSC Game World</span>, серії ігор <span className="font-semibold text-white/50">S.T.A.L.K.E.R.</span> або мережі магазинів <span className="font-semibold text-white/50">АТБ</span>. Всі права на зображення та торгові марки належать їх відповідним власникам.
         </p>
-        <div className="flex items-center gap-2 text-white/25 text-[10px] uppercase tracking-widest mt-2">
-          <span>Створено фанатами для фанатів</span>
-          <span>•</span>
-          <span>{new Date().getFullYear()}</span>
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-white/25 text-[10px] uppercase tracking-widest mt-2">
+          <div className="flex items-center gap-2">
+            <span>Створено фанатами для фанатів</span>
+            <span>•</span>
+            <span>{new Date().getFullYear()}</span>
+          </div>
+          
+          <a 
+            href="https://github.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-white/60 transition-colors"
+            title="Переглянути код на GitHub"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span>Open Source</span>
+          </a>
         </div>
       </div>
     </footer>
