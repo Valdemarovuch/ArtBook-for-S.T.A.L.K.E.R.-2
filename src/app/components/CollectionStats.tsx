@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Eye, EyeOff, CheckSquare, Square, Copy, Radiation, Skull, Shield } from 'lucide-react';
+import { Eye, EyeOff, CheckSquare, Square, Copy, Radiation, Skull, Shield, HelpCircle } from 'lucide-react';
+import { InfoModal } from './InfoModal';
 
 interface CollectionStatsProps {
   ownedCount: number;
@@ -81,6 +83,7 @@ export function CollectionStats({
   isSharedView,
   onShareClick,
 }: CollectionStatsProps) {
+  const [showInfoModal, setShowInfoModal] = useState(false);
   const percentage = totalCount > 0 ? Math.round((ownedCount / totalCount) * 100) : 0;
 
   return (
@@ -118,6 +121,13 @@ export function CollectionStats({
               <span className="text-orange-500/80 text-[10px] tracking-[0.25em] uppercase font-bold">
                 ПДА · Колекція артбуку
               </span>
+              <button
+                onClick={() => setShowInfoModal(true)}
+                className="ml-2 w-5 h-5 rounded-full border border-orange-500/30 flex items-center justify-center text-orange-500 hover:bg-orange-500/20 transition-colors"
+                title="Як це працює"
+              >
+                <HelpCircle className="w-3.5 h-3.5" />
+              </button>
             </div>
             <div className="text-orange-900/60 text-[10px] tracking-widest uppercase">
               S.T.A.L.K.E.R. 2
@@ -297,6 +307,8 @@ export function CollectionStats({
           </div>
         </div>
       </div>
+
+      <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
     </div>
   );
 }
