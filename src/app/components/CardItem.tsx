@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, memo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Check, Plus, Copy } from 'lucide-react';
 
@@ -13,7 +13,7 @@ interface CardItemProps {
   isForTrade?: boolean;
 }
 
-export function CardItem({ id, image, isOwned, duplicates, onToggle, onContextMenu, isSharedView, isForTrade }: CardItemProps) {
+export const CardItem = memo(function CardItem({ id, image, isOwned, duplicates, onToggle, onContextMenu, isSharedView, isForTrade }: CardItemProps) {
   const longPressTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isLongPressTriggeredRef = useRef(false);
 
@@ -159,4 +159,4 @@ export function CardItem({ id, image, isOwned, duplicates, onToggle, onContextMe
       </AnimatePresence>
     </motion.button>
   );
-}
+});
