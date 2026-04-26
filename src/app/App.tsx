@@ -279,6 +279,16 @@ function Footer() {
               <span>S.T.A.L.K.E.R. 2</span>
             </a>
             <a
+              href="https://s2-atb.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-white/60 transition-colors"
+              title="Офіційний сайт акції"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Офіційна акція</span>
+            </a>
+            <a
               href="https://www.atbmarket.com/"
               target="_blank"
               rel="noopener noreferrer"
