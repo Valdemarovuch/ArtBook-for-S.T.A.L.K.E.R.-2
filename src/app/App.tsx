@@ -266,10 +266,10 @@ function Footer() {
             <span>•</span>
             <span>{new Date().getFullYear()}</span>
           </div>
-          
-          <a 
-            href="https://github.com/" 
-            target="_blank" 
+
+          <a
+            href="https://github.com/Valdemarovuch/ArtBook-for-S.T.A.L.K.E.R.-2"
+            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 hover:text-white/60 transition-colors"
             title="Переглянути код на GitHub"
