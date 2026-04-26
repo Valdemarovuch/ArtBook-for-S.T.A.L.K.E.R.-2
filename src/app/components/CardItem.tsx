@@ -81,6 +81,7 @@ export const CardItem = memo(function CardItem({ id, image, isOwned, duplicates,
       <img
         alt={`Картка ${id}`}
         src={image}
+        loading="lazy"
         draggable={false}
         className={`w-full h-full object-cover pointer-events-none transition-all duration-500 ${
           isOwned ? 'grayscale-0 brightness-100' : 'grayscale brightness-50'
