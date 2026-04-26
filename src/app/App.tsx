@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Toaster, toast } from 'sonner';
 import confetti from 'canvas-confetti';
-import { ChevronUp, Github } from 'lucide-react';
+import { ChevronUp, Github, ExternalLink } from 'lucide-react';
 
 import { CardItem } from './components/CardItem';
 import { CollectionStats } from './components/CollectionStats';
@@ -267,16 +267,38 @@ function Footer() {
             <span>{new Date().getFullYear()}</span>
           </div>
 
-          <a
-            href="https://github.com/Valdemarovuch/ArtBook-for-S.T.A.L.K.E.R.-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-white/60 transition-colors"
-            title="Переглянути код на GitHub"
-          >
-            <Github className="w-3.5 h-3.5" />
-            <span>Open Source</span>
-          </a>
+          <div className="flex items-center gap-4 border-t sm:border-t-0 sm:border-l border-white/10 pt-3 sm:pt-0 sm:pl-6">
+            <a
+              href="https://www.stalker2.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-white/60 transition-colors"
+              title="Офіційний сайт S.T.A.L.K.E.R. 2"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>S.T.A.L.K.E.R. 2</span>
+            </a>
+            <a
+              href="https://www.atbmarket.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-white/60 transition-colors"
+              title="Офіційний сайт АТБ"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>АТБ</span>
+            </a>
+            <a
+              href="https://github.com/Valdemarovuch/ArtBook-for-S.T.A.L.K.E.R.-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-white/60 transition-colors"
+              title="Переглянути код на GitHub"
+            >
+              <Github className="w-3.5 h-3.5" />
+              <span>Open Source</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
