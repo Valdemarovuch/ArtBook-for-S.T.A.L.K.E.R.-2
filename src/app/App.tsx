@@ -200,7 +200,7 @@ function Header() {
             className="font-['Rubik',sans-serif] font-black text-white uppercase leading-none mb-4 tracking-tight"
             style={{ fontSize: 'clamp(36px, 6.5vw, 92px)', textShadow: '0 2px 28px rgba(0,0,0,0.6)' }}
           >
-            Колекціонуй. Відмічай. Мрій.
+            Колекціонуй. <span className="text-orange-400">Відмічай</span>. Мрій
           </h1>
 
           {/* Sub-title */}
@@ -240,11 +240,11 @@ function Header() {
         <div className="relative z-10 flex flex-col items-center">
           <img alt="STALKER 2" src={imgLogoStalker} className="h-7 mb-5 object-contain" />
           <h1 className="font-['Rubik',sans-serif] text-white font-bold mb-1">
-            Електронна версія <span className="text-orange-400">«Артбука»</span>
+            Колекціонуй. <span className="text-orange-400">Відмічай</span>. Мрій
           </h1>
           <h2 className="font-['Rubik',sans-serif] text-white font-bold">S.T.A.L.K.E.R. 2</h2>
           <p className="font-['Rubik',sans-serif] text-white/55 mt-3 font-light max-w-xs">
-            Веди облік своєї колекції, знаходь картки для обміну та ділися посиланням з друзями
+            Відмічай зібрані картки, знаходь повторки та ділися прогресом з друзями
           </p>
         </div>
       </div>
