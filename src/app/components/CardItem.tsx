@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Check, Plus, Copy } from 'lucide-react';
 
@@ -13,17 +14,60 @@ interface CardItemProps {
 }
 
 export function CardItem({ id, image, isOwned, duplicates, onToggle, onContextMenu, isSharedView, isForTrade }: CardItemProps) {
+  const longPressTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isLongPressTriggeredRef = useRef(false);
+
   const handleContextMenu = (e: React.MouseEvent) => {
     if (isSharedView) return;
     e.preventDefault();
     onContextMenu(id, image, e.clientX, e.clientY);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (isSharedView) return;
+    isLongPressTriggeredRef.current = false;
+    const touch = e.touches[0];
+    const x = touch.clientX;
+    const y = touch.clientY;
+
+    longPressTimeoutRef.current = setTimeout(() => {
+      isLongPressTriggeredRef.current = true;
+      if (navigator.vibrate) navigator.vibrate(50); // Haptic feedback
+      onContextMenu(id, image, x, y);
+    }, 500); // 500ms long press
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (longPressTimeoutRef.current) {
+      clearTimeout(longPressTimeoutRef.current);
+    }
+    // Prevent default so we don't also fire click if long press was triggered
+    if (isLongPressTriggeredRef.current) {
+      if (e.cancelable) e.preventDefault();
+    }
+  };
+
+  const handleTouchMove = () => {
+    if (longPressTimeoutRef.current) {
+      clearTimeout(longPressTimeoutRef.current);
+    }
+  };
+
+  const handleClick = () => {
+    if (isSharedView) return;
+    if (!isLongPressTriggeredRef.current) {
+      onToggle(id);
+    }
+  };
+
   return (
     <motion.button
       layout
-      onClick={() => !isSharedView && onToggle(id)}
+      onClick={handleClick}
       onContextMenu={handleContextMenu}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
       whileHover={isSharedView ? {} : { scale: 1.04, y: -4 }}
       whileTap={isSharedView ? {} : { scale: 0.96 }}
       transition={{ type: 'spring', stiffness: 320, damping: 24 }}
