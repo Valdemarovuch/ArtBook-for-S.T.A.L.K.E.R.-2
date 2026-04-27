@@ -121,13 +121,20 @@ export function CollectionStats({
               <span className="text-orange-500/80 text-[10px] tracking-[0.25em] uppercase font-bold">
                 КПК · Колекція артбуку
               </span>
-              <button
+              <motion.button
                 onClick={() => setShowInfoModal(true)}
-                className="ml-2 w-5 h-5 rounded-full border border-orange-500/30 flex items-center justify-center text-orange-500 hover:bg-orange-500/20 transition-colors"
+                className="ml-2 w-6 h-6 rounded-full border border-orange-500/50 flex items-center justify-center text-orange-300 hover:bg-orange-500/20 transition-colors bg-orange-500/10"
                 title="Як це працює"
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  boxShadow: ['0 0 5px rgba(249,115,22,0.3)', '0 0 15px rgba(249,115,22,0.7)', '0 0 5px rgba(249,115,22,0.3)']
+                }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <HelpCircle className="w-3.5 h-3.5" />
-              </button>
+              </motion.button>
             </div>
             <div className="text-orange-900/60 text-[10px] tracking-widest uppercase">
               S.T.A.L.K.E.R. 2
