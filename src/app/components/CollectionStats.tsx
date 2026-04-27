@@ -119,7 +119,7 @@ export function CollectionStats({
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-[0_0_6px_#f97316]" />
               <span className="text-orange-500/80 text-[10px] tracking-[0.25em] uppercase font-bold">
-                ПДА · Колекція артбуку
+                КПК · Колекція артбуку
               </span>
               <button
                 onClick={() => setShowInfoModal(true)}
