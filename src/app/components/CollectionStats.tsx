@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Eye, EyeOff, CheckSquare, Square, Copy, Radiation, Skull, Shield, HelpCircle } from 'lucide-react';
+import { Eye, EyeOff, CheckSquare, Copy, Radiation, Skull, Shield, HelpCircle } from 'lucide-react';
 import { InfoModal } from './InfoModal';
 
 interface CollectionStatsProps {
@@ -36,8 +36,8 @@ function SegmentedBar({ value, total }: { value: number; total: number }) {
             animate={{ opacity: 1, scaleY: 1 }}
             transition={{ delay: i * 0.018, duration: 0.2 }}
             className={`flex-1 h-5 rounded-[2px] relative overflow-hidden transition-all duration-300 ${isFilled
-                ? 'bg-orange-500'
-                : 'bg-white/8 border border-white/10'
+              ? 'bg-orange-500'
+              : 'bg-white/8 border border-white/10'
               }`}
           >
             {/* Glow pulse on edge segment */}
@@ -125,7 +125,7 @@ export function CollectionStats({
                 onClick={() => setShowInfoModal(true)}
                 className="ml-2 w-6 h-6 rounded-full border border-orange-500/50 flex items-center justify-center text-orange-300 hover:bg-orange-500/20 transition-colors bg-orange-500/10"
                 title="Як це працює"
-                animate={{ 
+                animate={{
                   scale: [1, 1.1, 1],
                   boxShadow: ['0 0 5px rgba(249,115,22,0.3)', '0 0 15px rgba(249,115,22,0.7)', '0 0 5px rgba(249,115,22,0.3)']
                 }}
@@ -275,8 +275,8 @@ export function CollectionStats({
             <button
               onClick={onToggleFilter}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold uppercase tracking-wide transition-all border ${showOnlyMissing
-                  ? 'bg-red-900/60 border-red-700/60 text-red-300 shadow-[0_0_12px_rgba(239,68,68,0.2)]'
-                  : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:text-white/90 hover:border-white/20'
+                ? 'bg-red-900/60 border-red-700/60 text-red-300 shadow-[0_0_12px_rgba(239,68,68,0.2)]'
+                : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:text-white/90 hover:border-white/20'
                 }`}
             >
               {showOnlyMissing ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
@@ -287,8 +287,8 @@ export function CollectionStats({
               onClick={onToggleDuplicatesFilter}
               disabled={duplicatesCount === 0}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold uppercase tracking-wide transition-all border disabled:opacity-30 disabled:cursor-not-allowed ${showOnlyDuplicates
-                  ? 'bg-orange-900/60 border-orange-700/60 text-orange-300 shadow-[0_0_12px_rgba(249,115,22,0.2)]'
-                  : 'bg-white/5 border-white/10 text-white/60 hover:bg-orange-900/30 hover:text-orange-300 hover:border-orange-800/40'
+                ? 'bg-orange-900/60 border-orange-700/60 text-orange-300 shadow-[0_0_12px_rgba(249,115,22,0.2)]'
+                : 'bg-white/5 border-white/10 text-white/60 hover:bg-orange-900/30 hover:text-orange-300 hover:border-orange-800/40'
                 }`}
             >
               <Copy className="w-3.5 h-3.5" />

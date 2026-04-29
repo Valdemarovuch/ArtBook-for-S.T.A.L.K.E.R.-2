@@ -187,11 +187,11 @@ function Header() {
         }} />
 
         {/* ── Text content ── */}
-        <div className="relative h-full flex flex-col justify-center z-10"
+        <div className="relative h-full flex flex-col justify-center z-10 ml-60"
           style={{ paddingLeft: 'clamp(28px, 6vw, 110px)', maxWidth: '50%' }}>
 
-          {/* Logo row: STALKER 2 × АТБ */}
-          <div className="flex items-center gap-3 mb-6">
+          {/* Logo row: STALKER 2 */}
+          <div className="flex items-center mb-6">
             <img alt="STALKER 2" src={imgLogoStalker} className="h-18 object-contain" />
           </div>
 
